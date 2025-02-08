@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Store and grow your funds safely with Ledger. Secure and efficient cryptocurrency management solutions." name="description"/>
+<meta content="ledger, ledger live, ledger desktop, cryptocurrency, secure storage, fund management" name="keywords"/>
+<meta content="Ledger" name="author"/>
+<title>ledger-sys.github.io</title>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        color: #333;
+        background-color: #f8f8f8;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 700;
+        color: #1a1a1a;
+    }
+    .btn-primary {
+        background-color: #4a4a4a;
+        border-color: #4a4a4a;
+    }
+    .btn-primary:hover {
+        background-color: #333;
+        border-color: #333;
+    }
+</style>
+<script crossorigin="anonymous" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Implement smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Implement lazy loading for images
+        const images = document.querySelectorAll('img[data-src]');
+        const config = {
+            rootMargin: '0px 0px 50px 0px',
+            threshold: 0
+        };
+
+        let observer = new IntersectionObserver(function (entries, self) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    preloadImage(entry.target);
+                    self.unobserve(entry.target);
+                }
+            });
+        }, config);
+
+        images.forEach(image => {
+            observer.observe(image);
+        });
+
+        function preloadImage(img) {
+            const src = img.getAttribute('data-src');
+            if (!src) { return; }
+            img.src = src;
+        }
+    });
+</script>
+<div class="position-fixed bottom-0 start-50 translate-middle-x p-3 bg-light border rounded shadow" id="cookieConsent" style="z-index: 1050; display: none;">
+<div class="d-flex justify-content-between align-items-center">
+<p class="mb-0 me-3">We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</p>
+<div>
+<button class="btn btn-sm btn-primary me-2" id="acceptCookies">Accept</button>
+<button class="btn btn-sm btn-secondary" id="declineCookies">Decline</button>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const cookieConsent = document.getElementById('cookieConsent');
+    const acceptBtn = document.getElementById('acceptCookies');
+    const declineBtn = document.getElementById('declineCookies');
+
+    function setCookieConsent(consent) {
+        localStorage.setItem('cookieConsent', consent);
+        cookieConsent.style.display = 'none';
+    }
+
+    if (!localStorage.getItem('cookieConsent')) {
+        cookieConsent.style.display = 'block';
+    }
+
+    acceptBtn.addEventListener('click', function() {
+        setCookieConsent('accepted');
+    });
+
+    declineBtn.addEventListener('click', function() {
+        setCookieConsent('declined');
+    });
+});
+</script>
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+<div style="flex: 1;">
+<header>
+<div class="container-fluid bg-light py-3">
+<div class="row align-items-center">
+<div class="col-md-4 col-lg-3">
+<a class="text-decoration-none" href="/">
+<h1 class="mb-0 text-dark" style="font-family: 'Arial', sans-serif; font-weight: 700; font-size: 1.5rem;">ledger-sys.github.io</h1>
+</a>
+</div>
+<div class="col-md-8 col-lg-9">
+<nav class="navbar navbar-expand-lg navbar-light">
+<button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link text-dark" href="posts.html" style="font-family: 'Arial', sans-serif; font-weight: 500;">Posts</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-dark" href="about.html" style="font-family: 'Arial', sans-serif; font-weight: 500;">About</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-dark" href="contacts.html" style="font-family: 'Arial', sans-serif; font-weight: 500;">Contacts</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-dark" href="privacy_policy.html" style="font-family: 'Arial', sans-serif; font-weight: 500;">Privacy Policy</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+</div>
+<script crossorigin="anonymous" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</header>
+<div class="container mt-5">
+<article class="mb-5">
+<h1 class="mb-4">The Basics of Personal Finance</h1>
+<img alt="A person sitting at a desk with financial documents, a calculator, and a laptop, representing personal finance management" class="img-fluid mb-4" src="images/image_0_posts_1.png"/>
+<p class="lead">Understanding personal finance is crucial for managing your money effectively and securing your financial future. This article will introduce you to the fundamental concepts of personal finance, including budgeting, saving, and investing.</p>
+<h2 class="mt-5 mb-3">Budgeting: The Foundation of Financial Health</h2>
+<p>Budgeting is the cornerstone of sound financial management. It involves tracking your income and expenses to ensure you're living within your means and allocating your resources wisely. Here are some key points to consider:</p>
+<ul>
+<li>Track all sources of income</li>
+<li>List and categorize your expenses</li>
+<li>Differentiate between needs and wants</li>
+<li>Set financial goals and allocate funds accordingly</li>
+<li>Regularly review and adjust your budget</li>
+</ul>
+<h2 class="mt-5 mb-3">Saving: Building Your Financial Safety Net</h2>
+<p>Saving money is essential for financial stability and achieving your long-term goals. Consider these saving strategies:</p>
+<ul>
+<li>Establish an emergency fund to cover 3-6 months of expenses</li>
+<li>Automate your savings by setting up regular transfers</li>
+<li>Look for high-yield savings accounts to maximize your returns</li>
+<li>Set specific savings goals for major purchases or life events</li>
+</ul>
+<h2 class="mt-5 mb-3">Investing: Growing Your Wealth</h2>
+<p>Investing allows you to grow your wealth over time by putting your money to work. Here are some basic investing principles:</p>
+<ul>
+<li>Start early to take advantage of compound interest</li>
+<li>Diversify your investments to spread risk</li>
+<li>Consider low-cost index funds for long-term growth</li>
+<li>Understand your risk tolerance and invest accordingly</li>
+<li>Regularly review and rebalance your investment portfolio</li>
+</ul>
+<h2 class="mt-5 mb-3">The Importance of Financial Literacy</h2>
+<p>Imenhancingving your financial literacy is an ongoing processcess. Stay informed about personal finance topics, read reputable financial news sources, and consider using digital tools to help manage your money effectively. Remember, the key to financial success is making informed decisions and staying consistent with your financial habits.</p>
+<img alt="A digital ledger or financial management app interface displayed on a smartphone and laptop, showcasing modern tools for personal finance management" class="img-fluid mt-4 mb-4" src="images/image_1_posts_1.png"/>
+<p class="mt-5">By mastering these basics of personal finance, you'll be well on your way to achieving financial stability and working towards your long-term financial goals. Remember, personal finance is personal – what works for one person may not work for another. The key is to find strategies that align with your unique situation and goals.</p>
+</article>
+</div>
+</div>
+<footer style="width: 100%; z-index: 1000;">
+<div class="container-fluid bg-light py-4">
+<div class="container">
+<div class="row">
+<div class="col-md-4 mb-3 mb-md-0">
+<h5 class="text-dark mb-3">ledger-sys.github.io</h5>
+<p class="text-muted small">Store and grow your funds safely with our secure ledger solutions.</p>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+<h5 class="text-dark mb-3">Quick Links</h5>
+<ul class="list-unstyled">
+<li><a class="text-muted" href="posts.html">Posts</a></li>
+<li><a class="text-muted" href="about.html">About</a></li>
+<li><a class="text-muted" href="contacts.html">Contacts</a></li>
+<li><a class="text-muted" href="privacy_policy.html">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<h5 class="text-dark mb-3">Connect With Us</h5>
+<div class="d-flex">
+<a class="text-muted me-3" href="#"><i class="fab fa-twitter"></i></a>
+<a class="text-muted me-3" href="#"><i class="fab fa-facebook-f"></i></a>
+<a class="text-muted me-3" href="#"><i class="fab fa-linkedin-in"></i></a>
+<a class="text-muted" href="#"><i class="fab fa-github"></i></a>
+</div>
+</div>
+</div>
+<hr class="my-4"/>
+<div class="row">
+<div class="col-md-6 text-center text-md-start">
+<p class="text-muted small mb-0">© 2024 ledger-sys.github.io. All rights reserved.</p>
+</div>
+<div class="col-md-6 text-center text-md-end">
+<p class="text-muted small mb-0">
+<a class="text-muted" href="privacy_policy.html">Privacy Policy</a> | 
+          <a class="text-muted" href="terms.html">Terms of Service</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+<script crossorigin="anonymous" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</footer>
+</body>
+</html>
