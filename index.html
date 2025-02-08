@@ -5,10 +5,10 @@
 <script src="main.js"></script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Store and grow your funds safely with Ledger. Secure and efficient cryptocurrency management solutions." name="description"/>
-<meta content="ledger, ledger live, ledger desktop, cryptocurrency, secure storage, fund management" name="keywords"/>
-<meta content="Ledger" name="author"/>
-<title>ledger-sys.github.io</title>
+<meta content="Check and claim your airdrop rewards with check_airodrop. Stay updated on the latest airdrops and maximize your crypto earnings." name="description"/>
+<meta content="airdrop, airdrops, crypto rewards, claim rewards, check_airodrop" name="keywords"/>
+<meta content="check_airodrop" name="author"/>
+<title>check_airodrop - Claim your rewards</title>
 <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
@@ -20,7 +20,6 @@
     }
     h1, h2, h3, h4, h5, h6 {
         font-weight: 700;
-        color: #1a1a1a;
     }
     .btn-primary {
         background-color: #4a4a4a;
@@ -34,41 +33,7 @@
 <script crossorigin="anonymous" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Implement smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Implement lazy loading for images
-        const images = document.querySelectorAll('img[data-src]');
-        const config = {
-            rootMargin: '0px 0px 50px 0px',
-            threshold: 0
-        };
-
-        let observer = new IntersectionObserver(function (entries, self) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    preloadImage(entry.target);
-                    self.unobserve(entry.target);
-                }
-            });
-        }, config);
-
-        images.forEach(image => {
-            observer.observe(image);
-        });
-
-        function preloadImage(img) {
-            const src = img.getAttribute('data-src');
-            if (!src) { return; }
-            img.src = src;
-        }
+        // Add any custom JavaScript for enhanced interactivity here
     });
 </script>
 <div class="position-fixed bottom-0 start-50 translate-middle-x p-3 bg-light border rounded shadow" id="cookieConsent" style="z-index: 1050; display: none;">
@@ -91,8 +56,10 @@ document.addEventListener('DOMContentLoaded', function() {
         cookieConsent.style.display = 'none';
     }
 
-    if (!localStorage.getItem('cookieConsent')) {
-        cookieConsent.style.display = 'block';
+    function showCookieConsent() {
+        if (localStorage.getItem('cookieConsent') === null) {
+            cookieConsent.style.display = 'block';
+        }
     }
 
     acceptBtn.addEventListener('click', function() {
@@ -102,6 +69,8 @@ document.addEventListener('DOMContentLoaded', function() {
     declineBtn.addEventListener('click', function() {
         setCookieConsent('declined');
     });
+
+    showCookieConsent();
 });
 </script>
 </head>
@@ -110,12 +79,12 @@ document.addEventListener('DOMContentLoaded', function() {
 <header>
 <div class="container-fluid bg-light py-3">
 <div class="row align-items-center">
-<div class="col-md-4 col-lg-3">
+<div class="col-md-3 col-sm-12 mb-3 mb-md-0">
 <a class="text-decoration-none" href="/">
-<h1 class="mb-0 text-dark" style="font-family: 'Arial', sans-serif; font-weight: 700; font-size: 1.5rem;">ledger-sys.github.io</h1>
+<h1 class="fs-4 fw-bold text-dark m-0">check_airodrop</h1>
 </a>
 </div>
-<div class="col-md-8 col-lg-9">
+<div class="col-md-9 col-sm-12">
 <nav class="navbar navbar-expand-lg navbar-light">
 <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
 <span class="navbar-toggler-icon"></span>
@@ -123,16 +92,16 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
 <ul class="navbar-nav">
 <li class="nav-item">
-<a class="nav-link text-dark" href="posts.html" style="font-family: 'Arial', sans-serif; font-weight: 500;">Posts</a>
+<a class="nav-link text-dark mx-2" href="posts.html">Posts</a>
 </li>
 <li class="nav-item">
-<a class="nav-link text-dark" href="about.html" style="font-family: 'Arial', sans-serif; font-weight: 500;">About</a>
+<a class="nav-link text-dark mx-2" href="about.html">About</a>
 </li>
 <li class="nav-item">
-<a class="nav-link text-dark" href="contacts.html" style="font-family: 'Arial', sans-serif; font-weight: 500;">Contacts</a>
+<a class="nav-link text-dark mx-2" href="contacts.html">Contacts</a>
 </li>
 <li class="nav-item">
-<a class="nav-link text-dark" href="privacy_policy.html" style="font-family: 'Arial', sans-serif; font-weight: 500;">Privacy Policy</a>
+<a class="nav-link text-dark mx-2" href="privacy_policy.html">Privacy Policy</a>
 </li>
 </ul>
 </div>
@@ -145,104 +114,77 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="container mt-5">
 <div class="row">
 <div class="col-lg-8 mx-auto">
-<h1 class="text-center mb-4" style="color: #333; font-family: 'Arial', sans-serif;">Welcome to Our Ledger Blog</h1>
-<p class="lead text-center mb-5" style="color: #555; font-family: 'Georgia', serif;">Your trusted source for insights on secure fund management and growth</p>
+<h1 class="text-center mb-4" style="color: #333; font-family: 'Arial', sans-serif;">Welcome to check_airodrop</h1>
+<p class="lead text-center mb-5" style="color: #555; font-family: 'Helvetica', sans-serif;">Your trusted source for the latest airdrop opportunities and rewards</p>
 <div class="card border-0 shadow-sm">
 <div class="card-body p-4">
-<h2 class="card-title mb-3" style="color: #4a4a4a; font-family: 'Arial', sans-serif;">Store and Grow Your Funds Safely</h2>
-<p class="card-text" style="color: #666; font-family: 'Helvetica', sans-serif;">
-            At ledger-sys.github.io, we're dedicated to offeringviding you with the latest information and strategies for managing your digital assets securely. Our blog covers a wide range of topics related to ledger systems, including:
+<h2 class="card-title mb-3" style="color: #4a4a4a; font-family: 'Arial', sans-serif;">Claim Your Rewards Today</h2>
+<p class="card-text" style="color: #666; font-family: 'Helvetica', sans-serif;">At check_airodrop, we're dedicated to helping you navigate the exciting world of cryptocurrency airdrops. Our platform offersvides you with:
           </p>
-<ul class="list-unstyled mt-3">
-<li class="mb-2"><i class="fas fa-check-circle mr-2" style="color: #8B4513;"></i> In-depth reviews of Ledger hardware wallets</li>
-<li class="mb-2"><i class="fas fa-check-circle mr-2" style="color: #8B4513;"></i> Tutorials on using Ledger Live for desktop and mobile</li>
-<li class="mb-2"><i class="fas fa-check-circle mr-2" style="color: #8B4513;"></i> Optimal practices for securing your cryptocurrencies</li>
-<li class="mb-2"><i class="fas fa-check-circle mr-2" style="color: #8B4513;"></i> Updates on the latest features and imadvancementsvements in ledger technology</li>
+<ul class="list-unstyled">
+<li class="mb-2"><i class="fas fa-check-circle mr-2" style="color: #8B4513;"></i> Up-to-date information on the latest airdrops</li>
+<li class="mb-2"><i class="fas fa-check-circle mr-2" style="color: #8B4513;"></i> Step-by-step guides on how to participate</li>
+<li class="mb-2"><i class="fas fa-check-circle mr-2" style="color: #8B4513;"></i> Expert analysis on potential rewards</li>
+<li class="mb-2"><i class="fas fa-check-circle mr-2" style="color: #8B4513;"></i> Community insights and discussions</li>
 </ul>
-<p class="card-text mt-4" style="color: #666; font-family: 'Helvetica', sans-serif;">
-            Whether you're a beginner just starting out with digital assets or an experienced investor looking to optimize your security, our blog offersvides valuable insights to help you navigate the world of cryptocurrency storage and management.
-          </p>
+<p class="mt-3" style="color: #666; font-family: 'Helvetica', sans-serif;">Whether you're a seasoned crypto enthusiast or just getting started, our blog is your go-to resource for maximizing your airdrop rewards. Stay informed, stay ahead, and never miss an opportunity to grow your digital assets.</p>
 </div>
 </div>
 <div class="text-center mt-5">
-<a class="btn btn-lg" href="#latest-posts" style="background-color: #8B4513; color: white; font-family: 'Arial', sans-serif;">Explore Our Latest Posts</a>
+<a class="btn btn-lg" href="#latest-posts" style="background-color: #8B4513; color: white; font-family: 'Arial', sans-serif;">Explore Latest Airdrops</a>
 </div>
 </div>
 </div>
 </div>
 <div class="container mt-5">
-<h2 class="mb-4">Latest Posts</h2>
+<h2 class="mb-4 text-center">Latest Blog Posts</h2>
 <div class="row">
 <div class="col-md-4 mb-4">
 <div class="card h-100">
-<img alt="A ledger book open to a page showing basic financial calculations, with a calculator and pen nearby, symbolizing the fundamentals of personal finance management." class="card-img-top" src="images/image_0_index.png"/>
+<img alt="Various cryptocurrency logos floating in the air, symbolizing airdrops. Digital coins of different colors and designs scattered across a blue sky background." class="card-img-top" src="images/image_0_index.png"/>
 <div class="card-body d-flex flex-column">
-<h5 class="card-title">The Basics of Personal Finance</h5>
-<p class="card-text flex-grow-1">An introduction to fundamental concepts of managing your money, including budgeting, saving, and investing.</p>
+<h5 class="card-title">Latest Airdrops</h5>
+<p class="card-text flex-grow-1">Stay updated with the most recent cryptocurrency airdrops and token giveaways.</p>
 <a class="btn btn-primary mt-auto" href="posts_1.html">Read More</a>
 </div>
 </div>
 </div>
 <div class="col-md-4 mb-4">
 <div class="card h-100">
-<img alt="A digital representation of various cryptocurrencies, with a Ledger hardware wallet in the foreground, illustrating the connection between digital currencies and secure storage." class="card-img-top" src="images/image_1_index.png"/>
+<img alt="A step-by-step visual guide showing a person interacting with a computer screen, claiming airdrop tokens. Icons representing different stages of the claiming process." class="card-img-top" src="images/image_1_index.png"/>
 <div class="card-body d-flex flex-column">
-<h5 class="card-title">Understanding Cryptocurrency</h5>
-<p class="card-text flex-grow-1">A beginner's guide to digital currencies, their potential, and risks in the context of personal finance.</p>
+<h5 class="card-title">How to Claim Airdrops</h5>
+<p class="card-text flex-grow-1">Step-by-step guide on participating in airdrops and claiming your complimentary tokens safely.</p>
 <a class="btn btn-primary mt-auto" href="posts_2.html">Read More</a>
 </div>
 </div>
 </div>
 <div class="col-md-4 mb-4">
 <div class="card h-100">
-<img alt="A piggy bank connected to a Ledger device, symbolizing the integration of traditional saving methods with modern, secure digital finance tools." class="card-img-top" src="images/image_2_index.png"/>
+<img alt="Collage of logos and interfaces from various popular airdrop platforms. Screen captures showing user-friendly interfaces and airdrop listings." class="card-img-top" src="images/image_2_index.png"/>
 <div class="card-body d-flex flex-column">
-<h5 class="card-title">Smart Saving Strategies</h5>
-<p class="card-text flex-grow-1">Practical tips and techniques to maximize your savings and build a strong financial foundation.</p>
+<h5 class="card-title">Top Airdrop Platforms</h5>
+<p class="card-text flex-grow-1">Review of the top-rated platforms and websites to find legitimate airdrops and rewards.</p>
 <a class="btn btn-primary mt-auto" href="posts_3.html">Read More</a>
 </div>
 </div>
 </div>
 </div>
 </div>
-<style>
-  .card {
-    border: 1px solid #e0e0e0;
-    transition: all 0.3s ease;
-  }
-  .card:hover {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transform: translateY(-5px);
-  }
-  .card-title {
-    font-family: 'Arial', sans-serif;
-    font-weight: bold;
-    color: #333;
-  }
-  .card-text {
-    font-family: 'Helvetica', sans-serif;
-    color: #555;
-  }
-  .btn-primary {
-    background-color: #4a4a4a;
-    border-color: #4a4a4a;
-  }
-  .btn-primary:hover {
-    background-color: #333;
-    border-color: #333;
-  }
-</style>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const cards = document.querySelectorAll('.card');
-  cards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
-      this.style.backgroundColor = '#f8f8f8';
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.addEventListener('mouseover', function() {
+            this.style.transform = 'translateY(-5px)';
+            this.style.transition = 'transform 0.3s ease';
+            this.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+        });
+        card.addEventListener('mouseout', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = 'none';
+        });
     });
-    card.addEventListener('mouseleave', function() {
-      this.style.backgroundColor = '#fff';
-    });
-  });
 });
 </script>
 </div>
@@ -251,8 +193,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="container">
 <div class="row">
 <div class="col-md-4 mb-3 mb-md-0">
-<h5 class="text-dark mb-3">ledger-sys.github.io</h5>
-<p class="text-muted small">Store and grow your funds safely with our secure ledger solutions.</p>
+<h5 class="text-dark mb-3">check_airodrop</h5>
+<p class="text-muted small">Claim your rewards and stay updated with the latest airdrops in the crypto world.</p>
 </div>
 <div class="col-md-4 mb-3 mb-md-0">
 <h5 class="text-dark mb-3">Quick Links</h5>
@@ -267,22 +209,19 @@ document.addEventListener('DOMContentLoaded', function() {
 <h5 class="text-dark mb-3">Connect With Us</h5>
 <div class="d-flex">
 <a class="text-muted me-3" href="#"><i class="fab fa-twitter"></i></a>
-<a class="text-muted me-3" href="#"><i class="fab fa-facebook-f"></i></a>
-<a class="text-muted me-3" href="#"><i class="fab fa-linkedin-in"></i></a>
-<a class="text-muted" href="#"><i class="fab fa-github"></i></a>
+<a class="text-muted me-3" href="#"><i class="fab fa-telegram"></i></a>
+<a class="text-muted me-3" href="#"><i class="fab fa-discord"></i></a>
+<a class="text-muted" href="#"><i class="fab fa-medium"></i></a>
 </div>
 </div>
 </div>
 <hr class="my-4"/>
 <div class="row">
 <div class="col-md-6 text-center text-md-start">
-<p class="text-muted small mb-0">© 2024 ledger-sys.github.io. All rights reserved.</p>
+<p class="text-muted small mb-0">© 2024 check_airodrop. All rights reserved.</p>
 </div>
 <div class="col-md-6 text-center text-md-end">
-<p class="text-muted small mb-0">
-<a class="text-muted" href="privacy_policy.html">Privacy Policy</a> | 
-          <a class="text-muted" href="terms.html">Terms of Service</a>
-</p>
+<p class="text-muted small mb-0">Contact: info@check-airodrop.com | +1 (555) 123-4567</p>
 </div>
 </div>
 </div>
